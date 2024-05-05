@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Donation Platform</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,700;0,800;1,400;1,600&display=swap');
+
+    body {
+      background-image: url("img/img.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      padding-top: 30px;
+      font-size: 80px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      animation: fadeIn 1s ease-in-out; 
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-50px); } 
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .frame {
+      text-align: center;
+      margin-top: 3em; /* Add a gap of three lines */
+      margin-bottom: 20px; 
+    }
+
+    .select-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    .select-container select {
+      width: 250px; /* Increased width for dropdown menu */
+      height: 50px; /* Adjust the height of the select button */
+      padding: 0 20px; /* Adjust padding as needed */
+      font-size: 22px; /* Increased font size */
+      border: none; /* Removed border for a cleaner look */
+      border-radius: 5px; /* Maintained border radius */
+      appearance: none; /* Remove default arrow */
+      -webkit-appearance: none; /* For older versions of Safari */
+      -moz-appearance: none; /* For older versions of Firefox */
+      background-color: #06C167; /* Same color as the button */
+      color: white; /* Same color as the button text */
+      cursor: pointer;
+    }
+
+    /* Style the select element to appear more button-like */
+    .select-container select {
+      background-color: #06C167; /* Same color as the button */
+      color: white; /* Same color as the button text */
+      padding-right: 30px; /* Add space for the arrow indicator */
+    }
+
+    .select-container::after {
+      content: '\25BC'; /* Unicode for down arrow */
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: white; /* Same color as the button text */
+    }
+
+    /* No separate button needed, select element handles click */
+
+    /* New styles for positioning the text at the bottom */
+    .message {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Additional styles can be added here */
+
+    /* Adjust button size */
+    button {
+      height: 50px; /* Match the height of the select element */
+      padding: 0 20px; /* Match the padding of the select element */
+      font-size: 22px; /* Match the font size of the select element */
+      border: none; /* Remove default button border */
+      border-radius: 5px; /* Match the border radius of the select element */
+      background-color: #06C167; /* Same color as the button */
+      color: white; /* Same color as the button text */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <p class="logo" style="font-size: 80px;"> Welcome to our Food Donation platform! </p>
+    <div class="message">
+        <p style="animation: fadeIn 1s ease-in-out;">Together, we can make a difference in the lives of those in need. Join us in our mission to fight hunger and create a brighter future for all.</p>
+    </div>
+
+    <div class="frame">
+        <div class="select-container">
+            <select id="accountTypeDropdown">
+                <option value="select" disabled selected>Select Account Type</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="delivery">Delivery</option>
+            </select>
+        </div>
+        <button onclick="login()">Select</button>
+    </div>
+    <div class="add"></div>
+
+    <script>
+        function login() {
+            var accountType = document.getElementById("accountTypeDropdown").value;
+            if (accountType === "user") {
+                window.location.href = "signup.php";
+            } else if (accountType === "admin") {
+                window.location.href = "admin/signup.php";
+            } else if (accountType === "delivery") {
+                window.location.href = "delivery/deliverysignup.php";
+            }
+        }
+    </script>
+</body>
+</html>
